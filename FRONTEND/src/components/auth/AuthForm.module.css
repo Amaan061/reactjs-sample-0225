@@ -34,10 +34,20 @@
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.05);
 }
 
+/* Auth page container */
+.authPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-light);
+}
+
 /* Main container */
 .authContainer {
   max-width: 480px;
-  margin: 0 auto;
+  width: 100%;
   padding: var(--spacing-xl);
   background-color: var(--color-background);
   border-radius: var(--radius-md);

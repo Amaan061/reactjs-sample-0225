@@ -112,23 +112,24 @@ const AuthForm: React.FC<AuthFormProps> = ({ initialMode = 'login' }) => {
   };
 
   return (
-    <div className={styles.authContainer}>
-      <div className={styles.authHeader}>
-        <h1 className={styles.authTitle}>
-          {mode === 'login' ? 'Sign In' : 'Create Account'}
-        </h1>
-        <p className={styles.authDescription}>
-          {mode === 'login' 
-            ? 'Sign in to access your task board'
-            : 'Create a new account to get started'}
-        </p>
-      </div>
+    <div className={styles.authPageContainer}>
+      <div className={styles.authContainer}>
+        <div className={styles.authHeader}>
+          <h1 className={styles.authTitle}>
+            {mode === 'login' ? 'Sign In' : 'Create Account'}
+          </h1>
+          <p className={styles.authDescription}>
+            {mode === 'login' 
+              ? 'Sign in to access your task board'
+              : 'Create a new account to get started'}
+          </p>
+        </div>
 
-      <form 
-        onSubmit={handleSubmit(onSubmit)}
-        className={`${styles.formTransition} ${styles.formEntered}`}
-        aria-label={mode === 'login' ? 'Login Form' : 'Signup Form'}
-      >
+        <form 
+          onSubmit={handleSubmit(onSubmit)}
+          className={`${styles.formTransition} ${styles.formEntered}`}
+          aria-label={mode === 'login' ? 'Login Form' : 'Signup Form'}
+        >
         {mode === 'signup' && (
           <div className={styles.formGroup}>
             <div className={styles.inputContainer}>
@@ -393,6 +394,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ initialMode = 'login' }) => {
         </button>
       </div>
     </div>
+  </div>
   );
 };
 
