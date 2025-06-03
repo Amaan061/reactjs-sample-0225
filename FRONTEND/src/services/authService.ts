@@ -93,7 +93,22 @@ export const authService = {
   
   register: async (username: string, email: string, password: string) => {
     try {
+      console.log('authService: Attempting registration for:', username, email);
       const response = await api.post<AuthResponse>('/auth/register', { username, email, password });
+      console.log('authService: Raw registration response:', response.data);
+      // Store token (using sessionStorage for registration)
+      if (response.data.token) {
+        sessionStorage.setItem('token', response.data.token);
+        // If we have data but no user field, format it for compatibility
+        if (response.data.data && !response.data.user) {
+          const userData = response.data.data;
+          response.data.user = {
+            id: userData._id,
+            username: userData.username,
+            email: userData.email
+          };
+        }
+      }
       return response.data;
     } catch (error) {
       if (error && typeof error === 'object' && 'response' in error) {

@@ -112,11 +112,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      await authService.register(username, email, password);
-      // Registration successful, now redirect to login page.
-      // We don't store the token or set user state here as per the new flow.
-      notify.success('Registration successful! Please login with your new account.');
-      window.location.href = '/login';
+      console.log('AuthContext: Attempting registration for user:', username);
+      const authResponse = await authService.register(username, email, password);
+      console.log('AuthContext: Registration response:', authResponse);
+      if (authResponse.token) {
+        setToken(authResponse.token);
+        const userData = authResponse.data || authResponse.user;
+        if (userData) {
+          const userToStore = JSON.stringify(userData);
+          sessionStorage.setItem('currentUser', userToStore);
+          setUser(userData);
+          notify.success(`Welcome, ${userData.username || userData.email}! Your account is created.`);
+        } else {
+          setUser(null);
+        }
+      } else {
+        notify.info('Registration successful! Please login with your new account.');
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to register';
       setError(errorMessage);
