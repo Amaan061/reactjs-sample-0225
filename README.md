@@ -7,11 +7,6 @@ This is a Task Board application built with React for the frontend and a Node.js
 You can access the deployed frontend application here:
 **[https://reactjs-sample-0225-dmkd.onrender.com](https://reactjs-sample-0225-dmkd.onrender.com)**
 
-## Backend API
-
-The backend API is deployed at:
-**[https://taskboard-backend-8tpe.onrender.com/api](https://taskboard-backend-8tpe.onrender.com/api)**
-
 ## Features
 * User registration and login with JWT authentication.
 * Create, view, update, and delete tasks.
