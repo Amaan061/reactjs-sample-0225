@@ -1,0 +1,44 @@
+.themeToggle {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: white;
+  transition: all 0.3s ease;
+  margin-left: 12px;
+}
+
+.themeToggle:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.themeToggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.themeIcon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeText {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.darkMode {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.lightMode {
+  background-color: rgba(255, 255, 255, 0.15);
+}
